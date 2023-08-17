@@ -1,5 +1,7 @@
 package application;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import model.Department;
@@ -10,14 +12,31 @@ import model.dao.SellerDao;
 public class Program {
 
 	public static void main(String[] args) {
-		Department obj = new Department(1, "Books");
-		System.out.println(obj);
 		
-		Seller s1 = new Seller(21, "Joao", "joaodorea@gmail.com", new Date(), 3000.0, obj);
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		
 		
 		SellerDao sellerDao = DaoFactory.createSellerDao();
 		
-		System.out.println(s1);
+		Department d1 = new Department(1, "Computers");
+		Seller s1 = null;
+		try {
+			s1 = new Seller(4, "Joao Pedro", "joaodorea300@gmail.com", sdf.parse("22/01/1999"), 15000.0, d1);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		sellerDao.update(s1);
+		
+
+	
+		
+		/*
+		for(Seller x: sellerDao.findAll()) {
+			System.out.println(x);
+		}
+		*/
 		
 
 	}
