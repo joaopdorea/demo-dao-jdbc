@@ -71,19 +71,7 @@ public class SellerDaoJDBC implements SellerDao {
 			e.printStackTrace();
 			
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			
 		
 	}
 
